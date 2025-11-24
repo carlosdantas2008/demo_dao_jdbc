@@ -25,5 +25,12 @@ public class Program2 {
 		departmentDao.deleteById(3);
 		System.out.println("Deleted!");
 		
+		System.out.println("==== TEST 4: department update ====");
+		Department departmentUpdate = new Department();
+		departmentUpdate = departmentDao.findById(6);
+		departmentUpdate.setName("Parts");
+		departmentDao.update(departmentUpdate);
+		System.out.println("Updated!");
+		
 	}
 }
