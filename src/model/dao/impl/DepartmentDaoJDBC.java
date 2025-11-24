@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +22,18 @@ private Connection conn;
 	}
 
 	@Override
-	public void inser(Department obj) {
-		// TODO Auto-generated method stub
+	public void insert(Department obj) {
+		PreparedStatement st = null;
+		
+		try {
+			st = conn.prepareStatement("INSERT into department (Name) VALUES (?)", Statement.RETURN_GENERATED_KEYS);
+			st.setString(1, obj.getName());
+			st.executeUpdate();
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}finally {
+			DB.closeStatement(st);
+		}
 
 	}
 

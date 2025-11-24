@@ -32,5 +32,10 @@ public class Program2 {
 		departmentDao.update(departmentUpdate);
 		System.out.println("Updated!");
 		
+		System.out.println("==== TEST 5: department insert ====");
+		Department departmentInsert = new Department(null, "HR");
+		departmentDao.insert(departmentInsert);
+		System.out.println("Inserted!");
+		
 	}
 }
