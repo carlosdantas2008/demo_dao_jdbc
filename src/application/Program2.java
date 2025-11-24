@@ -12,14 +12,18 @@ public class Program2 {
 		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 		
 		System.out.println("==== TEST 1: department findById ====");
-		Department departmentById = departmentDao.findById(2);
-		System.out.println(departmentById);
+		Department departmentFindById = departmentDao.findById(2);
+		System.out.println(departmentFindById);
 		
 		System.out.println("==== TEST 2: department findAll ====");
 		List<Department> departmentFindAll = departmentDao.findAll();
 		for (Department department : departmentFindAll) {
 			System.out.println(department);
 		}
+		
+		System.out.println("==== TEST 3: department deleteById ====");
+		departmentDao.deleteById(3);
+		System.out.println("Deleted!");
 		
 	}
 }
